@@ -21,8 +21,8 @@ if($btn){
 	 $mail2=$_POST['txt1'];
 	 
 	 $parola2=$_POST['txt2'];
-	 
-	 $yaz=mysql_fetch_array(mysql_query("select Ad from uyetb where Mail='$mail2' and Parola='$parola2'"));
+	 $sifreliparol=sha1($parola2);
+	 $yaz=mysql_fetch_array(mysql_query("select Ad from uyetb where Mail='$mail2' and Parola='$sifreliparol'"));
 if($yaz['Ad'])
 {
 	$_SESSION['oturum'] =$yaz['Ad'];
