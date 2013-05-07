@@ -29,7 +29,8 @@ if($btn){
 	$tel=$_POST['txt6'];
 	include("baglanti.php");
 	if($parola==$parola2){
-	mysql_query("Insert into uyetb (Ad,Soyad,Mail,Parola,Tel)values('$ad','$soyad','$mail','$parola','$tel')") or die(mysql_error());
+		$sifreliparol=sha1($parola);
+	mysql_query("Insert into uyetb (Ad,Soyad,Mail,Parola,Tel)values('$ad','$soyad','$mail','$sifreliparol','$tel')") or die(mysql_error());
 	session_start();
 	$_SESSION['oturum']= $ad;
 	}
